@@ -100,8 +100,8 @@ body {
 }
 
 .generate .button {
-  color: var(--mainlight);
-  background-color: var(--maindark);
+  color: var(--maindark);
+  background-color: var(--mainorange);
   padding: 1rem;
   font-size: 1.5rem;
   border-radius: 0.4rem;
@@ -110,8 +110,8 @@ body {
 }
 
 .generate .button:hover {
-  color: var(--maindark);
-  background-color: var(--mainorange);
+  color: var(--mainlight);
+  background-color: var(--maindark);
   cursor: pointer;  
 }
 
