@@ -4,8 +4,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
+First, clone the repository to your device
+Then, open the project directory in a code editor
 
+*Ensure you have Node.js downloaded*
+
+In the project directory, you can run:
 
 ### `npm install`
 This will install all required dependencies
