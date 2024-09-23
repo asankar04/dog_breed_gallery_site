@@ -4,7 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-First, clone the repository to your device
+First, clone the repository to your device.
+
 Then, open the project directory in a code editor
 
 *Ensure you have Node.js downloaded*
