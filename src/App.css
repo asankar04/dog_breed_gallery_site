@@ -136,6 +136,13 @@ body {
   box-shadow: 0px 0px 20px var(--maindark);
 }
 
+.inputError {
+  font-size: 3rem;
+  margin: 2rem;
+  opacity: 100%;
+  transition: opacity 0.2s ease;
+}
+
 .end {
   display: flex;
   justify-content: center;

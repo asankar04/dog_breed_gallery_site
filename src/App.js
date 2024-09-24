@@ -23,8 +23,7 @@ function App() {
         fetch('https://dog.ceo/api/breeds/list/all')
           .then(res => res.json())
           .then((data) => {            
-            setbreedList(data.message);            
-            setfilteredBreedList(Object.keys(data.message));               
+            setbreedList(data.message);                                       
           });
       } catch (error) {
         console.log(error);
@@ -40,8 +39,12 @@ function App() {
       const breeds = Object.keys(breedList).filter((breed) => 
         breed.toLowerCase().includes(breedName.toLowerCase())
       );
-      setfilteredBreedList(breeds);     
-      setshowBreeds(true);    
+      if (breeds.length > 0) {
+        setfilteredBreedList(breeds);     
+        setshowBreeds(true);    
+      } else {
+        setfilteredBreedList([]);        
+      }
     } else {
       setfilteredBreedList(Object.keys(breedList));  
       setshowBreeds(false);    
@@ -69,12 +72,16 @@ function App() {
 
   // Filtering sub-breed list menu based on input
   useEffect(() => {
-    if (breedName && subBreedName.length > 0) {
+    if ((subBreedList.length > 0) && subBreedName.length > 0) {
       const filteredSubBreeds = subBreedList.filter((subBreed) => 
         subBreed.toLowerCase().includes(subBreedName.toLowerCase())
       );
-      setfilteredSubBreedList(filteredSubBreeds); 
-      setshowSubBreeds(true);     
+      if (filteredSubBreeds.length > 0) {
+        setfilteredSubBreedList(filteredSubBreeds); 
+        setshowSubBreeds(true);     
+      } else {
+        setfilteredSubBreedList([]);
+      }
     } else {
       setfilteredSubBreedList(subBreedList);
       setshowSubBreeds(false);
@@ -83,7 +90,7 @@ function App() {
   }, [breedName, subBreedName,subBreedList])
 
   // Rendering Dog Gallery component
-  const handleClick = () => {    
+  const handleClick = () => {                    
       setshowGallery(true);
       setshowBreeds(false);
       setshowSubBreeds(false);
