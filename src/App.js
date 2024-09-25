@@ -7,12 +7,14 @@ function App() {
   const [breedName, setbreedName] = useState('');
   const [subBreedName, setsubBreedName] = useState('');
   const [quantity, setquantity] = useState();
-  const [breedList, setbreedList] = useState({});
-  const [subBreedList, setsubBreedList] = useState({});
+  const [breedList, setbreedList] = useState([]);
+  const [subBreedList, setsubBreedList] = useState([]);
   const [filteredBreedList, setfilteredBreedList] = useState([]);
   const [filteredSubBreedList, setfilteredSubBreedList] = useState([]);  
+  const [breedNameStatus, setbreedNameStatus] = useState(false);
   const [showBreeds, setshowBreeds] = useState(false);
   const [showSubBreeds, setshowSubBreeds] = useState(false);
+  const [subBreedDisabled, setsubBreedDisabled] = useState(true);
   const [showGallery, setshowGallery] = useState(false);
   const [galleryKey, setgalleryKey] = useState(1);
 
@@ -20,11 +22,10 @@ function App() {
   useEffect(() => {    
     const getList = async() => {
       try {
-        fetch('https://dog.ceo/api/breeds/list/all')
-          .then(res => res.json())
-          .then((data) => {            
-            setbreedList(data.message);                                       
-          });
+        const resp = await fetch('https://dog.ceo/api/breeds/list/all')
+        const data = await resp.json();
+        const breeds = data.message;    
+            setbreedList(breeds);                                                 
       } catch (error) {
         console.log(error);
       }
@@ -34,12 +35,14 @@ function App() {
   
   // Filtering breed list menu based on input
   useEffect(() => {
+    setbreedNameStatus(false);
+    setsubBreedDisabled(true);
     if (breedName.length > 0) {      
       setsubBreedName('');
       const breeds = Object.keys(breedList).filter((breed) => 
         breed.toLowerCase().includes(breedName.toLowerCase())
       );
-      if (breeds.length > 0) {
+      if (Array.isArray(breeds) && breeds.length > 0) {
         setfilteredBreedList(breeds);     
         setshowBreeds(true);    
       } else {
@@ -54,48 +57,51 @@ function App() {
 
   // Fetching sub-breed list
   useEffect(() => {
-    if (breedName) {
-      setshowSubBreeds(false);
+    if (breedNameStatus) {
+      setshowSubBreeds(false);      
       fetch(`https://dog.ceo/api/breed/${breedName}/list`)
         .then(res => res.json())
         .then((data) => {
           const list = data.message;                    
           if (Array.isArray(list) && list.length > 0) {
-            setsubBreedList(list);            
+            setsubBreedList(list);
+            setsubBreedDisabled(false);            
           } else {
-            setsubBreedList([]);            
+            setsubBreedList([]);  
+            setsubBreedDisabled(true);          
           }
         })        
     }
     setshowGallery(false);
-  }, [breedName]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [breedNameStatus]);
 
   // Filtering sub-breed list menu based on input
   useEffect(() => {
-    if ((subBreedList.length > 0) && subBreedName.length > 0) {
+    if (breedNameStatus && (subBreedList.length > 0) && subBreedName.length > 0) {
       const filteredSubBreeds = subBreedList.filter((subBreed) => 
-        subBreed.toLowerCase().includes(subBreedName.toLowerCase())
-      );
-      if (filteredSubBreeds.length > 0) {
+        subBreed.toLowerCase().includes(subBreedName.toLowerCase()));
+      if (Array.isArray(filteredSubBreeds) && filteredSubBreeds.length > 0) {
         setfilteredSubBreedList(filteredSubBreeds); 
         setshowSubBreeds(true);     
       } else {
         setfilteredSubBreedList([]);
+        setshowSubBreeds(false);
       }
     } else {
       setfilteredSubBreedList(subBreedList);
       setshowSubBreeds(false);
     }
     setshowGallery(false);
-  }, [breedName, subBreedName,subBreedList])
+  }, [breedNameStatus, subBreedName,subBreedList])
 
   // Rendering Dog Gallery component
   const handleClick = () => {                    
-      setshowGallery(true);
       setshowBreeds(false);
       setshowSubBreeds(false);
       // Re-renders gallery by updating a prop
       setgalleryKey((key) => key += 1);
+      setshowGallery(true);
   }
 
   return (
@@ -117,7 +123,7 @@ function App() {
             />
             {showBreeds && (<ul className='breeds'>            
               {filteredBreedList.map(breed => (
-                <li key={breed} onClick={() => {setbreedName(breed); setshowBreeds(false); setsubBreedName('')}} className='choice'>{breed}</li>
+                <li key={breed} onClick={() => {setbreedName(breed); setbreedNameStatus(true); setshowBreeds(false); setsubBreedName('')}} className='choice'>{breed}</li>
               ))}
             </ul>)}            
           </div>
@@ -130,6 +136,7 @@ function App() {
               onChange={(e) => setsubBreedName(e.target.value)}    
               onClick={() => breedName ? setshowSubBreeds(true) : setshowSubBreeds(false)}           
               placeholder='Select a sub-breed'
+              disabled={subBreedDisabled ? true : false}
             />
             {showSubBreeds && (<ul className='subBreeds'>
               {filteredSubBreedList.map(subBreed => ( 
@@ -157,7 +164,7 @@ function App() {
           }
         </div>
         <div className='end'>
-          <p className='credits'>----- Made by Anit Sankar -----</p>
+          <p className='credits'>- Made by Anit Sankar -</p>
         </div>
       </div>
     </>

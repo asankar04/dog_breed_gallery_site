@@ -4,20 +4,24 @@ import "./App.css"
 function DogGallery(props) {
     const [imageArray, setImageArray] = useState([]);
     const [arrayStatus, setarrayStatus] = useState(false);
+    const [error, seterror] = useState('');
     
     useEffect(() => {    
-        const getImages = (URL) => {
-            fetch(URL)                
-            .then(res => res.json())
-            .then((data) => {
+        const getImages = async(URL) => {
+            try {
+                const resp = await fetch(URL);
+                const data = await resp.json();
                 const images = data.message;
-                if (Array.isArray(images) && images.length > 0) {
-                    setImageArray(images);
-                    setarrayStatus(true);
-                } else {
-                    setarrayStatus(false);
-                }
-            })  
+                    if (Array.isArray(images) && images.length > 0) {
+                        setImageArray(images);
+                        setarrayStatus(true);
+                    } else {
+                        setarrayStatus(false);
+                        seterror('No matches found for input');
+                    } 
+            } catch(error) {
+                seterror(error);
+            }         
         };
 
         if (props.breed && props.subBreed && props.quantity) {
@@ -30,16 +34,18 @@ function DogGallery(props) {
             getImages(`https://dog.ceo/api/breed/${props.breed}/images`);
         } else {
             setImageArray([]);
-            console.log("No input received");            
-        }        
-    }, [props.breed, props.subBreed, props.quantity]);
+            setarrayStatus(false);
+            seterror('No input received');                        
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps        
+    }, [props.quantity]);
 
     return (
         <>
             <div className="gallery">
                 {arrayStatus ? (imageArray.map((image, index) => (                   
                     <img key={index} src={image} alt="dog gallery" className="image" />
-                ))) : (console.log("Please enter valid input"))}
+                ))) : (error && console.log(error))}
             </div>
         </>
     )
