@@ -31,15 +31,6 @@ function DogCard({ image, label, index }) {
           />
         )}
       </a>
-      <div className="dog-card-caption">
-        <div>
-          <h3>{label}</h3>
-          <p>Dog CEO collection</p>
-        </div>
-        <span className="photo-number">
-          {String(index + 1).padStart(2, '0')}
-        </span>
-      </div>
     </article>
   );
 }

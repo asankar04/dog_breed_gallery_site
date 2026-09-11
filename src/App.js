@@ -136,7 +136,7 @@ function App() {
               type="submit"
               disabled={loadStatus !== 'ready'}
             >
-              Show dogs <span aria-hidden="true">↗</span>
+              Show dogs
             </button>
           </form>
           <p className="filter-hint" id="quantity-help">
