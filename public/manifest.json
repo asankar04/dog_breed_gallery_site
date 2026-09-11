@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Dog Gallery",
+  "name": "Dog Breed Gallery",
   "icons": [
     {
       "src": "dog.png",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#315d87",
+  "background_color": "#f8f7f4"
 }
