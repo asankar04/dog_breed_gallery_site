@@ -56,50 +56,10 @@ function App() {
 
   return (
     <div className="app-shell">
-      <header className="site-header">
-        <div className="page-width header-content">
-          <div className="brand">
-            <span className="brand-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="currentColor">
-                <ellipse
-                  cx="7"
-                  cy="12"
-                  rx="3"
-                  ry="4"
-                  transform="rotate(-20 7 12)"
-                />
-                <ellipse cx="13" cy="7" rx="3" ry="4" />
-                <ellipse cx="21" cy="7" rx="3" ry="4" />
-                <ellipse
-                  cx="27"
-                  cy="13"
-                  rx="3"
-                  ry="4"
-                  transform="rotate(20 27 13)"
-                />
-                <path d="M9 20c3-2 3-7 8-7s5 5 8 7c5 7-1 10-5 7-2-1-4-1-6 0-5 3-10 0-5-7Z" />
-              </svg>
-            </span>
-            <span>
-              Dog Breed Gallery<span className="brand-dot">.</span>
-            </span>
-          </div>
-          <a
-            className="source-link"
-            href="https://dog.ceo/dog-api/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Powered by Dog CEO <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </header>
-
       <main className="page-width">
         <section className="intro" aria-labelledby="page-title">
-          <p className="eyebrow">A LITTLE SCROLL. A LOT OF GOOD DOGS.</p>
           <h1 id="page-title">
-            Find your kind of <span>good dog.</span>
+            Find your kind of <span>dog.</span>
           </h1>
           <p className="intro-copy">
             Pick a breed, explore the variations, and meet a gallery full of

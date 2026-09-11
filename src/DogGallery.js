@@ -91,7 +91,6 @@ function DogGallery({ breed, subBreed, quantity }) {
     >
       <div className="gallery-heading">
         <div>
-          <p className="eyebrow">THE GALLERY</p>
           <h2 id="gallery-title">{label}</h2>
         </div>
         <p className="gallery-count" role="status">

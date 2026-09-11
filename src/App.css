@@ -2,90 +2,38 @@
   min-height: 100vh;
 }
 .page-width {
-  width: min(1160px, calc(100% - 64px));
+  width: min(1100px, calc(100% - 64px));
   margin-inline: auto;
 }
-.site-header {
-  background: #fff;
-  border-bottom: 1px solid #e6e8eb;
-}
-.header-content {
-  min-height: 88px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-weight: 750;
-  font-size: 20px;
-  letter-spacing: -0.6px;
-}
-.brand-icon {
-  display: grid;
-  place-items: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 13px;
-  background: #edf2f8;
-  color: #355d85;
-  flex-shrink: 0;
-}
-.brand-icon svg {
-  width: 26px;
-  height: 26px;
-}
-.brand-dot {
-  color: #426f9b;
-}
-.source-link {
-  font-size: 13px;
-  color: #596777;
-  text-decoration: none;
-}
-.source-link:hover {
-  color: #234f7b;
-  text-decoration: underline;
-}
-.source-link span {
-  margin-left: 7px;
-}
 .intro {
-  padding: 62px 0 34px;
-}
-.eyebrow {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.8px;
-  color: #60748a;
-  margin: 0 0 15px;
+  padding: 58px 0 36px;
+  text-align: center;
 }
 .intro h1 {
-  font-size: clamp(32px, 4.2vw, 50px);
-  line-height: 1.12;
-  font-weight: 750;
-  letter-spacing: -1.8px;
+  font-family: 'Baloo 2', ui-rounded, sans-serif;
+  font-size: clamp(38px, 5vw, 60px);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -1.2px;
   margin: 0;
 }
 .intro h1 span {
-  color: #426b93;
+  color: #ae432a;
 }
 .intro-copy {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #64707c;
-  margin: 18px 0 0;
-  max-width: 640px;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.65;
+  color: #4a4640;
+  margin: 14px auto 0;
+  max-width: 630px;
 }
 .filter-panel {
-  padding: 24px;
-  border: 1px solid #e3e6e9;
-  border-radius: 16px;
+  padding: 28px;
+  border: 3px solid #1a1816;
+  border-radius: 26px;
   background: #fff;
-  box-shadow: 0 3px 12px #25334304;
+  box-shadow: 5px 5px 0 #1a1816;
 }
 .filter-form {
   display: grid;
@@ -99,70 +47,78 @@
   min-width: 0;
 }
 .field label {
-  font-size: 13px;
-  font-weight: 650;
+  font-size: 14px;
+  font-weight: 800;
 }
 .field label span {
-  font-size: 11px;
-  color: #6e7884;
-  font-weight: 400;
+  font-size: 12px;
+  color: #5f5952;
+  font-weight: 600;
   margin-left: 5px;
 }
 .field input,
 .field select {
   width: 100%;
   min-width: 0;
-  height: 46px;
-  border: 1px solid #d8dfe6;
-  border-radius: 8px;
-  background: #fff;
+  height: 50px;
+  border: 2px solid #1a1816;
+  border-radius: 14px;
+  background: #fffdf8;
   padding: 0 12px;
-  color: #253343;
-  font-size: 14px;
+  color: #1a1816;
+  font-size: 15px;
+  font-weight: 700;
 }
 .field select:disabled {
-  color: #7e8792;
-  background: #f6f7f8;
+  color: #6e6861;
+  background: #efede8;
+  border-color: #817a73;
 }
 .primary-button,
 .secondary-button {
-  min-height: 46px;
+  min-height: 50px;
   padding: 0 24px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 650;
-  border: 1px solid transparent;
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: 800;
+  border: 3px solid #1a1816;
+  box-shadow: 3px 3px 0 #1a1816;
+  color: #1a1816;
 }
 .primary-button {
-  color: #fff;
-  background: #315d87;
+  background: #ff8b6a;
 }
 .primary-button span {
-  margin-left: 16px;
+  margin-left: 12px;
 }
 .primary-button:hover {
-  background: #234b72;
+  background: #ffad94;
+}
+.primary-button:active,
+.secondary-button:active {
+  box-shadow: 1px 1px 0 #1a1816;
 }
 .primary-button:disabled {
-  background: #798d9e;
+  background: #e0d8cb;
+  color: #605950;
+  box-shadow: none;
+  border-color: #817a73;
 }
 .secondary-button {
-  background: #fff;
-  border-color: #cbd6e0;
-  color: #315d87;
+  background: #f5dc83;
 }
 .secondary-button:hover {
-  background: #edf2f8;
+  background: #ffe9a5;
 }
 .filter-hint {
-  margin: 14px 0 0;
-  color: #6d7782;
+  margin: 17px 0 0;
+  color: #5f5952;
   font-size: 12px;
   line-height: 1.6;
 }
 .error-message {
   font-size: 14px;
-  color: #9c3535;
+  color: #a02e26;
 }
 .text-button {
   background: none;
@@ -170,51 +126,56 @@
   padding: 3px;
   color: inherit;
   text-decoration: underline;
-  font-weight: 600;
+  font-weight: 800;
 }
 .gallery-section {
-  padding: 43px 0 48px;
+  padding: 48px 0;
 }
 .gallery-heading {
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: center;
   gap: 16px;
   margin-bottom: 24px;
 }
-.gallery-heading .eyebrow {
-  margin-bottom: 8px;
-}
 .gallery-heading h2 {
-  font-size: 27px;
-  letter-spacing: -0.7px;
+  font-family: 'Baloo 2', ui-rounded, sans-serif;
+  font-size: 34px;
+  line-height: 1.2;
+  font-weight: 800;
   margin: 0;
 }
 .gallery-count {
-  color: #6b7783;
+  color: #4a4640;
   font-size: 13px;
-  margin: 0 0 3px;
+  font-weight: 700;
+  margin: 0;
+  padding: 8px 14px;
+  background: #ffedd7;
+  border: 2px solid #1a1816;
+  border-radius: 999px;
 }
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  gap: 28px;
 }
 .dog-card {
-  border: 1px solid #e3e6e9;
-  border-radius: 14px;
+  border: 3px solid #1a1816;
+  border-radius: 24px;
   overflow: hidden;
   background: #fff;
-  box-shadow: 0 3px 8px #25334304;
+  box-shadow: 4px 4px 0 #1a1816;
 }
 .dog-photo {
   display: block;
   aspect-ratio: 4 / 3;
-  background: #e9edf0;
+  background: #f1e7d6;
   overflow: hidden;
+  border-bottom: 3px solid #1a1816;
 }
 .dog-photo:focus-visible {
-  outline-offset: -4px;
+  outline-offset: -6px;
 }
 .dog-photo img {
   width: 100%;
@@ -226,7 +187,7 @@
   height: 100%;
   display: grid;
   place-items: center;
-  color: #606e7d;
+  color: #5f5952;
   font-size: 14px;
 }
 .dog-card-caption {
@@ -234,50 +195,70 @@
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  padding: 18px 20px;
+  padding: 17px 18px;
+  background: #fff1d9;
+}
+.dog-card:nth-child(3n + 2) .dog-card-caption {
+  background: #e8eddf;
+}
+.dog-card:nth-child(3n) .dog-card-caption {
+  background: #f5e2e9;
 }
 .dog-card h3 {
-  font-size: 15px;
-  font-weight: 650;
+  font-family: 'Baloo 2', ui-rounded, sans-serif;
+  font-size: 21px;
+  line-height: 1.25;
+  font-weight: 700;
   margin: 0;
 }
 .dog-card p {
-  font-size: 11px;
-  color: #74808c;
-  margin: 6px 0 0;
+  font-size: 12px;
+  color: #5f5952;
+  margin: 4px 0 0;
 }
 .photo-number {
+  display: grid;
+  place-items: center;
+  min-width: 36px;
+  min-height: 36px;
+  padding: 6px;
+  flex-shrink: 0;
   font-size: 12px;
-  color: #72849a;
-  border: 1px solid #e5eaf0;
-  border-radius: 7px;
-  padding: 7px;
+  font-weight: 800;
+  color: #1a1816;
+  background: #fff;
+  border: 2px solid #1a1816;
+  border-radius: 50%;
   font-variant-numeric: tabular-nums;
 }
 .card-placeholder {
   aspect-ratio: 1;
-  border-radius: 14px;
-  background: #eceeec;
+  border: 3px solid #1a1816;
+  border-radius: 24px;
+  background: #f1e7d6;
 }
 .gallery-message {
-  border: 1px dashed #cfd7df;
-  border-radius: 14px;
+  border: 3px dashed #1a1816;
+  border-radius: 24px;
   padding: 48px 24px;
   text-align: center;
+  background: #fffdf8;
 }
 .gallery-message h3 {
+  font-family: 'Baloo 2', ui-rounded, sans-serif;
+  font-size: 26px;
   margin-top: 0;
 }
 .gallery-message p {
-  color: #64707c;
+  color: #4a4640;
   line-height: 1.6;
 }
 .load-more {
   text-align: center;
-  margin-top: 28px;
+  margin-top: 32px;
 }
 .load-more p {
-  color: #6b7783;
+  color: #5f5952;
   font-size: 13px;
 }
 .site-footer {
@@ -285,10 +266,11 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 12px;
-  border-top: 1px solid #dfe4e8;
+  border-top: 2px solid #1a1816;
   padding: 24px 0 32px;
-  font-size: 12px;
-  color: #6e7884;
+  font-size: 13px;
+  font-weight: 600;
+  color: #4a4640;
 }
 .site-footer a {
   text-underline-offset: 3px;
@@ -299,53 +281,50 @@
   }
   .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
+    gap: 24px;
   }
 }
 @media (max-width: 580px) {
   .page-width {
-    width: calc(100% - 32px);
-  }
-  .header-content {
-    min-height: 76px;
-  }
-  .brand {
-    font-size: 17px;
-    gap: 9px;
-  }
-  .source-link {
-    max-width: 90px;
-    font-size: 11px;
-    text-align: right;
-    line-height: 1.5;
+    width: calc(100% - 40px);
   }
   .intro {
-    padding-top: 38px;
+    padding: 38px 0 28px;
   }
   .intro h1 {
-    letter-spacing: -1px;
+    letter-spacing: -0.7px;
+  }
+  .intro-copy {
+    font-size: 15px;
   }
   .filter-panel {
-    padding: 18px;
+    padding: 20px;
+    border-radius: 22px;
   }
   .filter-form {
-    gap: 16px 12px;
+    gap: 18px 12px;
   }
   .filter-form .field:nth-child(-n + 2) {
     grid-column: 1 / -1;
   }
   .primary-button {
-    padding-inline: 16px;
+    padding-inline: 14px;
+    font-size: 14px;
   }
   .primary-button span {
     margin-left: 6px;
   }
   .gallery-heading {
-    align-items: start;
+    align-items: center;
     flex-direction: column;
-    gap: 10px;
+    text-align: center;
+    gap: 12px;
   }
   .gallery-grid {
     grid-template-columns: 1fr;
+  }
+  .site-footer {
+    justify-content: center;
+    text-align: center;
   }
 }
